@@ -41,7 +41,7 @@ if uploaded_file is not None and api_key:
         with st.spinner(f"AIが『{tone}』考え中..."):
             try:
                 genai.configure(api_key=api_key)
-                model = genai.GenerativeModel('gemini-2.5-pro') 
+                model = genai.GenerativeModel('models/gemini-2.5-flash') 
 
                 # ★ここがポイント！
                 # ユーザーが選んだ `tone` (性格) をプロンプトの中に埋め込みます
@@ -68,4 +68,5 @@ if uploaded_file is not None and api_key:
                 st.error(f"エラーが発生しました: {e}")
 
 elif not api_key:
+
     st.info("まずはAPIキーを入力してね！")
